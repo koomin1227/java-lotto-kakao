@@ -5,7 +5,8 @@ public enum LottoWinningInfo {
     MATCH_4(4, false, 50_000, "4개 일치 "),
     MATCH_5(5, false, 150_000, "5개 일치 "),
     MATCH_5_BONUS(5, true, 30_000_000, "5개 일치 + 보너스 볼"),
-    MATCH_6(6, false, 2_000_000_000L, "6개 일치 ");
+    MATCH_6(6, false, 2_000_000_000L, "6개 일치 "),
+    NONE(-1, false, 0, "일치 하지 않음");
 
     private final int matchCount;
     private final boolean bonusMatch;
