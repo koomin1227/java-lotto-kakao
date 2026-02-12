@@ -40,7 +40,7 @@ public enum LottoWinningInfo {
     public static LottoWinningInfo getLottoWinningInfo(int matchCount, boolean bonusMatch) {
 
         // 보너스는 5개 일치일 때만 의미 있음
-        if (matchCount == 5 && bonusMatch) {
+        if (matchCount == MATCH_5_BONUS.matchCount && bonusMatch) {
             return MATCH_5_BONUS;
         }
 
