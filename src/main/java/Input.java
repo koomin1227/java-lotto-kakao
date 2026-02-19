@@ -35,18 +35,20 @@ public class Input {
     }
 
     public Integer inputManualCount(Integer originalLottoCount) {
-        System.out.println("수동으로 구매할 로또 수를 입력해 주세요.");
+        while (true) {
+            System.out.println("수동으로 구매할 로또 수를 입력해 주세요.");
 
-        String input = scanner.nextLine();
+            String input = scanner.nextLine();
 
-        try {
-            int value = Integer.parseInt(input);
-            // 음수 잡아내기
-            if (value < 0) throw new NumberFormatException();
-            if (value > originalLottoCount) throw new NumberFormatException();
-            return value;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("잘 못된 로또 개수 입니다.");
+            try {
+                int value = Integer.parseInt(input);
+                // 음수 잡아내기
+                if (value < 0) throw new NumberFormatException();
+                if (value > originalLottoCount) throw new NumberFormatException();
+                return value;
+            } catch (NumberFormatException e) {
+                System.out.println("잘 못된 로또 개수 입니다.");
+            }
         }
     }
 
@@ -61,8 +63,16 @@ public class Input {
         System.out.println("수동으로 구매할 번호를 입력해 주세요.");
         List<Lotto> lottos = new ArrayList<>();
         for (int i = 0; i < manualLottoCount; i++) {
-            List<Integer> lottoNumbers = getLottoNumber(null);
-            lottos.add(new Lotto(lottoNumbers));
+
+            while (true){
+                try {
+                    List<Integer> lottoNumbers = getLottoNumber(null);
+                    lottos.add(new Lotto(lottoNumbers));
+                    break;
+                } catch (Exception e) {
+                    System.out.println("올바른 로또 번호를 입력해주세요.");
+                }
+            }
         }
 
         return new Lottos(lottos);
